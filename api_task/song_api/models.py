@@ -30,6 +30,11 @@ class Band(models.Model):
 class Song(models.Model):
     name = models.CharField(_("name"), max_length=50)
     duration = models.PositiveIntegerField(_("duration"))  # in seconds
+    picture = models.ImageField(
+        _("picture"),
+        upload_to='songs/pictures',
+        blank=True, null=True,
+    )
     band = models.ForeignKey(
         Band,
         verbose_name=_("band"),
